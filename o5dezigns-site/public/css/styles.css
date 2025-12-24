@@ -150,7 +150,7 @@ html[data-theme="dark"] .header{
   align-items: center;
   /* background-color: #7650DB; */
 }
-.hero-left {  margin-bottom: 70px;}
+/* .hero-left {  margin-bottom: 70px;} */
 /* .hero h1 {
   font-size: clamp(32px, 4vw, 48px);
   line-height: 1.06;
@@ -159,7 +159,7 @@ html[data-theme="dark"] .header{
 .hero-cta { margin-top: 18px; }
 
 .hero-orb {
-  background-color: #F3F4F6;
+  /* background-color: #F3F4F6; */
   width: min(380px, 90%);
   aspect-ratio: 1 / 1;
   border-radius: 999px;
@@ -544,10 +544,12 @@ html[data-theme="light"] .showcase-blank{
 }
 
 .muted1{
-  padding: 15px 0 15px 0;
+  padding: 15px 0 20px 0;
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 22px;
+  /* background-color: #7650DB; */
+  margin-right: 145px;
 }
 .stats-right .muted{
   color: rgba(255,255,255,.85);
