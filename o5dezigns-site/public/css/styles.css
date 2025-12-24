@@ -67,15 +67,25 @@ a { color: inherit; text-decoration: none; }
 }
 .muted { color: var(--muted); }
 
-/* ---------- Header ---------- */
-html[data-theme="light"] .header{
+/* ---------- Header (STICKY BOTH THEMES) ---------- */
+.header{
   position: sticky;
   top: 0;
   z-index: 50;
   backdrop-filter: blur(10px);
-  background: linear-gradient(to bottom,rgba(255,255,255,.75), rgba(255,255,255,0));
   border-bottom: 1px solid var(--cardBorder);
 }
+
+/* Light header background */
+html[data-theme="light"] .header{
+  background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0));
+}
+
+/* Dark header background */
+html[data-theme="dark"] .header{
+  background: linear-gradient(to bottom, rgba(21,20,34,.75), rgba(21,20,34,0));
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -89,9 +99,7 @@ html[data-theme="light"] .header{
   display: flex;
   gap: 18px;
   align-items: center;
-  /* background-color: #8A53DC; */
-  gap:24px;
-  /* margin-right: 100px;  */
+  gap: 24px;
 }
 .nav a {
   opacity: .85;
@@ -131,27 +139,27 @@ html[data-theme="light"] .header{
   border-color: var(--cardBorder);
   background: var(--outline-bg);
   color: var(--outline-text);
-  /* color:#DEE6E9 */
 }
 
 /* ---------- Hero ---------- */
 .hero { padding: 60px 0 40px; }
 .hero-grid {
-  /* background-color: aqua; */
   display: grid;
   grid-template-columns: 1.2fr .8fr;
-  gap: px;
+  gap: 10px;
   align-items: center;
+  /* background-color: #7650DB; */
 }
-.hero h1 {
+.hero-left {  margin-bottom: 70px;}
+/* .hero h1 {
   font-size: clamp(32px, 4vw, 48px);
   line-height: 1.06;
-  margin: 0 0 14px;
+  margin: 0 0 14px; */
 }
 .hero-cta { margin-top: 18px; }
 
 .hero-orb {
-  /* background-color: red; */
+  background-color: #F3F4F6;
   width: min(380px, 90%);
   aspect-ratio: 1 / 1;
   border-radius: 999px;
@@ -326,6 +334,7 @@ html[data-theme="light"] textarea {
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .service-icons { grid-template-columns: 1fr 1fr; }
+  .hero-right { margin-top: 20px;}
 }
 
 @media (max-width: 640px) {
@@ -353,15 +362,13 @@ html[data-theme="light"] textarea {
    HERO FULL SCREEN
 ========================= */
 .hero-full{
-  /* padding-top: 50px; */
   min-height: 92vh;
   display: flex;
   align-items: center;
-  padding: 0;                      /* no extra top padding */
+  padding: 0;
 }
-
 .hero-full .hero-grid{
-  padding: 40px 0 40px;            /* space under header */
+  padding: 40px 0 40px;
 }
 
 /* =========================
@@ -374,16 +381,14 @@ html[data-theme="light"] textarea {
   gap: 16px;
   padding: 3px 4px 3px 18px;
   min-width: 245px;
-  background: var(--pill-bg);                 /* same as image */
+  background: var(--pill-bg);
   color: var(--pill-text);
   border: 1px solid var(--pill-border);
   box-shadow: var(--pill-shadow);
   border-radius: 999px;
 
-  /* font-weight: 500; */
   font-size: 18px;
   font-family: sans-serif;
-  /* letter-spacing: .2em; */
   text-transform: uppercase;
 
   box-shadow: 0 12px 30px rgba(0,0,0,.18);
@@ -399,22 +404,14 @@ html[data-theme="light"] textarea {
   border: 2px solid var(--pill-icon-ring);
   border-radius: 999px;
 
-  /* purple circle like your design */
   background: linear-gradient(180deg, var(--purple2), var(--purple));
-
-  /* logo inside */
-  background-image:
-    url("/images/logo.png");         /* IMPORTANT PATH */
+  background-image: url("/images/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
 
-  /* makes it look clean */
   border: 2px solid rgba(255,255,255,.45);
-  /* box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); */
 }
-
-
 
 .pill-arrow{
   color:#fff;
@@ -434,10 +431,21 @@ html[data-theme="light"] textarea {
 .who-inner{
   text-align: center;
 }
+.hero-full h2{
+  margin: 0 0 18px;
+  font-size: clamp(34px, 4vw, 54px);
+}
 
 .who h2{
   margin: 0 0 18px;
   font-size: clamp(34px, 4vw, 54px);
+}
+
+.who h2{
+  /* margin: 0 0 14px; */
+  font-size: clamp(38px, 4vw, 64px);
+  line-height: 1.05;
+  color: #fff;
 }
 
 .who-text{
@@ -446,6 +454,7 @@ html[data-theme="light"] textarea {
   font-size: clamp(16px, 1.4vw, 22px);
   line-height: 1.6;
   color: rgba(255,255,255,.92);
+  /* text-align: left; */
 }
 
 .who-text p{
@@ -461,12 +470,10 @@ html[data-theme="light"] textarea {
 }
 
 .showcase-blank{
-  height: 420px; /* looks like your big empty rectangle */
+  height: 420px;
   border-radius: 22px;
   border: 1px solid var(--cardBorder);
-  background:
-    radial-gradient(700px 300px at 50% 45%, rgba(118,80,219,.35), rgba(0,0,0,.85)),
-    rgba(0,0,0,.25);
+  background-image: url('/images/1.jpg');
 }
 
 /* Light mode blank */
@@ -499,7 +506,7 @@ html[data-theme="light"] .showcase-blank{
 }
 
 .stats-card{
-  border-radius: 42px; /* big round corners like your design */
+  border-radius: 42px;
   padding: 26px 28px;
 }
 
@@ -536,10 +543,7 @@ html[data-theme="light"] .showcase-blank{
   color: #fff;
 }
 
-
 .muted1{
-  /* color: rgba(255,255,255,.85); */
-  /* background-color: #D5BCFD; */
   padding: 15px 0 15px 0;
   font-size: 18px;
   line-height: 1.5;
@@ -551,7 +555,6 @@ html[data-theme="light"] .showcase-blank{
   line-height: 1.5;
   margin-bottom: 22px;
 }
-
 
 /* =========================
    RESPONSIVE
@@ -568,19 +571,14 @@ html[data-theme="light"] .showcase-blank{
   }
 }
 
-
 /* ===== Mobile fix: center ellipse/orb in hero ===== */
 @media (max-width: 900px) {
-
-  /* make hero content centered on mobile */
   .hero-full .hero-grid {
     text-align: center;
     justify-items: center;
   }
 
-  /* center the orb wrapper */
   .hero-right {
-    /* background-color: aquamarine; */
     margin-bottom: 50px;
     order: -1;
     display: flex;
@@ -588,12 +586,11 @@ html[data-theme="light"] .showcase-blank{
     align-items: center;
   }
 
-  /* center + control orb size */
   .hero-orb {
-    margin-left: 0;       /* remove desktop push */
+    margin-left: 0;
     margin-right: 0;
-    width: 280px;         /* set fixed size for mobile */
-    max-width: 85vw;      /* still responsive */
+    width: 280px;
+    max-width: 85vw;
   }
 }
 
