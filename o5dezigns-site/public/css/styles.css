@@ -150,12 +150,7 @@ html[data-theme="dark"] .header{
   align-items: center;
   /* background-color: #7650DB; */
 }
-/* .hero-left {  margin-bottom: 70px;} */
-/* .hero h1 {
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.06;
-  margin: 0 0 14px; */
-}
+
 .hero-cta { margin-top: 18px; }
 
 .hero-orb {
@@ -374,6 +369,9 @@ html[data-theme="light"] textarea {
 /* =========================
    PILL BUTTONS (LIKE IMAGE)
 ========================= */
+.pill-text{
+  margin-top: 1.5px;
+}
 .pill-btn{
   display: inline-flex;
   align-items: center;
@@ -403,7 +401,6 @@ html[data-theme="light"] textarea {
   height: 37px;
   border: 2px solid var(--pill-icon-ring);
   border-radius: 999px;
-
   background: linear-gradient(180deg, var(--purple2), var(--purple));
   background-image: url("/images/logo.png");
   background-repeat: no-repeat;
@@ -418,6 +415,7 @@ html[data-theme="light"] textarea {
   font-size:30px;
   line-height:1;
   transform:translateX(1px);
+  
 }
 
 /* =========================
@@ -489,30 +487,47 @@ html[data-theme="light"] .showcase-blank{
 .stats{
   background: linear-gradient(90deg, var(--purple) 0%, var(--purple) 50%, rgba(118,80,219,.92) 100%);
   padding: 70px 0;
+  /* left:--100px */
+
+
 }
 
 .stats-wrap{
-  display: grid;
+  width: 100%;
+  /* background-color: red; */
+}
+
+.stats-inner{
+
+  align-items: center;
+  display: block;
   grid-template-columns: 1.15fr .85fr;
   gap: 28px;
-  align-items: start;
+  /* align-items:center; */
+  /* width:min(1200px, calc(100% - 32px)); */
 }
 
 .stats-left{
+
+  /* background-color: red; */
+  margin-top: 70px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   align-items: stretch;
+  /* background-color:cadetblue; */
 }
 
 .stats-card{
-  border-radius: 42px;
+  border-radius: 15px;
   padding: 26px 28px;
+  
 }
 
 .stats-card h3{
   margin: 0 0 10px;
-  font-size: 22px;
+  font-size: 20px;
+  
 }
 
 .stats-card p{
@@ -527,7 +542,7 @@ html[data-theme="light"] .showcase-blank{
 }
 
 .card-dark{
-  background: rgba(10,10,18,.55);
+  background: #1E1E2F;
   border: 1px solid rgba(255,255,255,.16);
   color: #fff;
 }
@@ -535,12 +550,28 @@ html[data-theme="light"] .showcase-blank{
 .stats-wide{
   grid-column: 1 / -1;
 }
+.stats-right{
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
 
 .stats-right h2{
-  margin: 0 0 14px;
+  margin: 0 0 5px;
   font-size: clamp(38px, 4vw, 64px);
   line-height: 1.05;
   color: #fff;
+  text-align: center;
+}
+
+.stats-right .muted{
+  color: rgba(255,255,255,.85);
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  text-align: center;
 }
 
 .muted1{
@@ -548,15 +579,10 @@ html[data-theme="light"] .showcase-blank{
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 22px;
-  /* background-color: #7650DB; */
   margin-right: 145px;
 }
-.stats-right .muted{
-  color: rgba(255,255,255,.85);
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 22px;
-}
+
+
 
 /* =========================
    RESPONSIVE
@@ -565,13 +591,22 @@ html[data-theme="light"] .showcase-blank{
   .stats-wrap{
     grid-template-columns: 1fr;
   }
+    .stats-inner{
+    grid-template-columns: 1fr;
+  }
   .stats-left{
     grid-template-columns: 1fr;
+    /* background-color: aquamarine; */
   }
   .stats-card{
     border-radius: 26px;
   }
+  .muted1
+  {
+    margin-right: 0;
+  }
 }
+
 
 /* ===== Mobile fix: center ellipse/orb in hero ===== */
 @media (max-width: 900px) {
