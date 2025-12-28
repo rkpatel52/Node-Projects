@@ -351,6 +351,41 @@ html[data-theme="light"] textarea {
   .burger { display: inline-flex; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 12px; }
+
+  .wwd{
+    padding: 44px 0 56px;
+  }
+
+  .wwd .muted{
+    padding: 0 14px;
+    line-height: 1.6;
+  }
+
+  .wwd-icons{
+    margin-top: 26px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 18px;
+    justify-items: center;
+  }
+
+  .wwd-item{
+    width: 100%;
+    justify-items: center;
+    gap: 8px;
+  }
+
+  .ico-img{
+    width: 56px;
+    height: 56px;
+  }
+
+  .wwd-label{
+    margin-bottom: 0;         /* ✅ remove the extra empty space */
+    font-size: 12px;
+    white-space: normal;      /* ✅ allow wrap */
+    max-width: 140px;
+    text-align: center;
+  }
 }
 
 /* =========================
@@ -463,22 +498,35 @@ html[data-theme="light"] textarea {
    SHOWCASE BLANK SPACE
 ========================= */
 .showcase{
-  padding: 70px 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
   background: var(--bg);
 }
-
+.showcase .container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 .showcase-blank{
-  height: 420px;
-  border-radius: 22px;
+  height: 100vh;
+  width: 100%;
+  /* border-radius: 22px; */
   border: 1px solid var(--cardBorder);
   background-image: url('/images/1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Light mode blank */
 html[data-theme="light"] .showcase-blank{
-  background:
-    radial-gradient(700px 300px at 50% 45%, rgba(118,80,219,.18), rgba(0,0,0,.10)),
-    rgba(255,255,255,.9);
+  background-image:
+    radial-gradient(700px 300px at 50% 45%, rgba(118,80,219,.18), rgba(0,0,0,.05)),
+    url('/images/1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* =========================
@@ -672,11 +720,14 @@ html[data-theme="light"] .showcase-blank{
 }
 .wwd-icons{
   margin-top: 40px;
-  /* margin-top: 10px; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 220px;
-  align-items: center;
+
+  /* ✅ instead of fixed 220px */
+  gap: clamp(18px, 6vw, 120px);
+
+  align-items: start;
+  justify-items: center;
 }
 
 .wwd-item{
@@ -686,7 +737,7 @@ html[data-theme="light"] .showcase-blank{
   /* background-color: #7650DB; */
 }
 
-.wwd-badge{
+.ico-img{
   width: 46px;
   height: 46px;
   border-radius: 999px;
@@ -698,19 +749,6 @@ html[data-theme="light"] .showcase-blank{
   background: rgba(255,255,255,.08);
 }
 
-.wwd-badge .ico-img{
-  
-  width: max-content;
-  height: 20px;
-  /* border-radius: 999px; */
-}
-
-/* badge accent colors */
-.wwd-badge.b1{ background: #EBDDFE}
-.wwd-badge.b2{ background: #E0E7FF; }
-.wwd-badge.b3{ background: #FFF2DF; }
-.wwd-badge.b4{ background: #CEFDC9; }
-
 .wwd-label{
   color: rgba(255,255,255,.85);
   font-size: 14px;
@@ -720,6 +758,25 @@ html[data-theme="light"] .showcase-blank{
   margin-bottom: 22px;
   text-align: center;
 }
+/* =========================
+   WWD - LIGHT THEME TEXT COLOR FIX
+========================= */
+html[data-theme="light"] .wwd {
+  color: #151422;
+}
+
+html[data-theme="light"] .wwd h2 {
+  color: #151422;
+}
+
+html[data-theme="light"] .wwd .muted {
+  color: rgba(21,20,34,.72);
+}
+
+html[data-theme="light"] .wwd-label {
+  color: rgba(21,20,34,.75);
+}
+
 
 /* =========================
    CONTACT SLAB (WHITE AREA + FLOAT FORM)
