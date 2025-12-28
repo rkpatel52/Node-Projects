@@ -353,19 +353,27 @@ html[data-theme="light"] textarea {
   .footer-bottom { flex-direction: column; gap: 12px; }
 
   .wwd{
-    padding: 44px 0 56px;
+    padding: 56px 0 78px;
+  background:
+    radial-gradient(900px 500px at 30% 20%, rgba(118,80,219,.28), transparent 60%),
+    radial-gradient(900px 520px at 80% 0%, rgba(138,83,220,.22), transparent 55%),
+    var(--bg2);
   }
 
   .wwd .muted{
     padding: 0 14px;
+    max-width: 760px;
+    margin: 0n auto;
     line-height: 1.6;
   }
 
   .wwd-icons{
-    margin-top: 26px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px 18px;
-    justify-items: center;
+    margin-top: 40px;
+    display: grid;
+      grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 6vw, 120px);
+  justify-items: center;
+  align-items: start;
   }
 
   .wwd-item{
@@ -704,7 +712,7 @@ html[data-theme="light"] .showcase-blank{
   margin: 0 0 5px;
   font-size: clamp(38px, 4vw, 64px);
   line-height: 1.05;
-  color: #fff;
+  color: var(--text);
   text-align: center;
 }
 
