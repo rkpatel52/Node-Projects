@@ -367,14 +367,15 @@ html[data-theme="light"] textarea {
     line-height: 1.6;
   }
 
-  .wwd-icons{
-    margin-top: 40px;
+  /* .wwd-icons{
+    background-color: RED;
+    margin-top: 50px;
     display: grid;
       grid-template-columns: repeat(4, 1fr);
   gap: clamp(24px, 6vw, 120px);
   justify-items: center;
   align-items: start;
-  }
+  } */
 
   .wwd-item{
     width: 100%;
@@ -727,10 +728,10 @@ html[data-theme="light"] .showcase-blank{
   opacity: .8;
 }
 .wwd-icons{
-  margin-top: 40px;
+  margin-top: 90px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
+  /* background-color: tomato; */
   /* ✅ instead of fixed 220px */
   gap: clamp(18px, 6vw, 120px);
 
@@ -815,34 +816,37 @@ html[data-theme="light"] .wwd-label {
   border-radius: 18px;
   border: 1px solid rgba(21,20,34,.10);
   box-shadow: 0 18px 40px rgba(0,0,0,.18);
-  padding: 18px;
+  padding: 25px;
   width: min(420px, 100%);
 }
 
 .contact-form-card h3{
-  margin: 0 0 12px;
-  font-size: 14px;
+
+  margin: 35px 0 0;
+  font-size: 20px;
   font-weight: 700;
   color: rgba(21,20,34,.80);
 }
 
 .contact-form label{
   display: block;
-  font-size: 11px;
+  font-size: 15px;
+  font-weight:600;
   color: rgba(21,20,34,.70);
-  margin: 10px 0 0;
+  margin: 20px 0 0;
 }
 
 .contact-form input,
 .contact-form textarea{
   width: 100%;
-  margin-top: 6px;
-  border-radius: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
   padding: 10px 12px;
   border: 1px solid rgba(21,20,34,.10);
   background: rgba(21,20,34,.04);
   color: #151422;
   outline: none;
+  font-size: 14px;
 }
 
 .contact-form textarea{ resize: none; }
@@ -855,6 +859,7 @@ html[data-theme="light"] .wwd-label {
 
 .btn-send{
   margin-top: 12px;
+  margin-bottom: 35px;
   width: 100%;
   border: none;
   border-radius: 10px;
