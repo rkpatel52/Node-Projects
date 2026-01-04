@@ -1,4 +1,4 @@
-require("dotenv").config(); // keep for local only (Vercel ignores .env)
+require("dotenv").config();
 
 const express = require("express");
 const path = require("path");
@@ -6,14 +6,10 @@ const pool = require("./db");
 
 const app = express();
 
-// parse form
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// static
 app.use(express.static(path.join(__dirname, "public")));
 
-// ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -56,14 +52,8 @@ app.post("/api/contact", async (req, res) => {
     return res.json({ ok: true });
   } catch (err) {
     console.error("CONTACT_API_ERROR:", err);
-    return res.status(500).json({ ok: false, error: "Server error. Try again." });
+    return res.status(500).json({ ok: false, error: "Server error" });
   }
 });
-
-// ✅ IMPORTANT: don’t listen() on Vercel
-if (!process.env.VERCEL) {
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => console.log(`Running: http://localhost:${PORT}`));
-}
 
 module.exports = app;
