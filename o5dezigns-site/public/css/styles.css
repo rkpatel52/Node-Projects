@@ -324,7 +324,7 @@ html[data-theme="light"] textarea {
    FOOTER (LIKE IMAGE)
 ========================= */
 .footer-new{
-  margin-top: 40px;
+  margin-top: 0;
   border-top: 1px solid rgba(255,255,255,.10);
   background:
     radial-gradient(900px 500px at 30% 15%, rgba(118,80,219,.26), transparent 60%),
