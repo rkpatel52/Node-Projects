@@ -530,10 +530,7 @@ html[data-theme="light"] .footer-new-socials .soc{
 }
 
 @media (max-width: 640px) {
-  .pill-btn {
-    width: 100%;
-    justify-content: center;
-  }
+
   .nav { display: none; }
   .nav.open {
     display: flex;
@@ -894,10 +891,6 @@ html[data-theme="light"] .showcase-blank{
   .hero-orb {
     width: 240px;
   }
-  .pill-btn {
-    width: 100%;
-    justify-content: center;
-  }
 }
 /* =========================
    WHAT WE DO (DARK BAND)
@@ -1161,14 +1154,26 @@ html[data-theme="light"] .wwd-label {
   .wwd-label{ white-space: normal; }
 }
 
+
 @media (max-width: 980px){
   .contact-slab-inner{
     grid-template-columns: 1fr;
   }
 
-  /* stop overlap on mobile and stack naturally */
+  /* ✅ Put info first */
+  .contact-info{
+    grid-row: 1;
+  }
+
+  /* ✅ Put form second */
   .contact-float{
-    margin-top: 0;
+    grid-row: 2;
+    margin-top: 16px; /* spacing between info and form */
+  }
+
+  /* stop overlap on mobile */
+  .contact-float{
+    margin-top: 0; /* set to 0 if you want no gap */
   }
 
   .contact-form-card{
