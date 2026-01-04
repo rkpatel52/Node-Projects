@@ -12,20 +12,18 @@
 
   // ✅ Update theme-dependent images (WWD icons etc.)
   function syncThemeAssets() {
-    const theme = root.getAttribute("data-theme") || "dark";
+  const theme = document.documentElement.getAttribute("data-theme") || "dark";
 
-    // Swap WWD icons based on data-light / data-dark attrs
-    document.querySelectorAll(".ico-img").forEach((img) => {
-      const lightSrc = img.getAttribute("data-light");
-      const darkSrc = img.getAttribute("data-dark");
-      if (!lightSrc || !darkSrc) return;
+  // WWD + footer + any theme-based images
+  document.querySelectorAll(".ico-img, .theme-icon").forEach(img => {
+    const lightSrc = img.getAttribute("data-light");
+    const darkSrc = img.getAttribute("data-dark");
+    if (!lightSrc || !darkSrc) return;
 
-      img.src = theme === "light" ? lightSrc : darkSrc;
-    });
+    img.src = theme === "light" ? lightSrc : darkSrc;
+  });
+}
 
-    // Optional: close mobile menu after switching theme (nice UX)
-    // nav?.classList.remove("open");
-  }
 
   // theme init
   const saved = localStorage.getItem("theme");

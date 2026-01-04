@@ -278,7 +278,8 @@ html[data-theme="light"] textarea {
 }
 
 /* ---------- CTA ---------- */
-.cta { padding: 56px 0; }
+.cta { padding: 48px 0;  /* instead of 60–70px */
+}
 .cta-box {
   text-align: center;
   border-radius: var(--radius);
@@ -377,6 +378,7 @@ html[data-theme="light"] textarea {
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 34px;
   padding: 22px 0 26px;
+  margin-bottom: 20px;
   align-items: start;
 }
 
@@ -407,22 +409,22 @@ html[data-theme="light"] textarea {
 /* columns */
 .footer-new-col h4{
   margin: 0 0 14px;
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   opacity: .9;
 }
 
 .footer-new-col a{
   display: block;
   margin: 8px 0;
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255,255,255,.72);
 }
 
 .footer-new-col a:hover{ color: rgba(255,255,255,.95); }
 
 .footer-new-meta{
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255,255,255,.72);
   display: grid;
   gap: 8px;
@@ -528,6 +530,10 @@ html[data-theme="light"] .footer-new-socials .soc{
 }
 
 @media (max-width: 640px) {
+  .pill-btn {
+    width: 100%;
+    justify-content: center;
+  }
   .nav { display: none; }
   .nav.open {
     display: flex;
@@ -548,7 +554,8 @@ html[data-theme="light"] .footer-new-socials .soc{
   .footer-bottom { flex-direction: column; gap: 12px; }
 
   .wwd{
-    padding: 56px 0 78px;
+padding: 48px 0;  /* instead of 60–70px */
+
   background:
     radial-gradient(900px 500px at 30% 20%, rgba(118,80,219,.28), transparent 60%),
     radial-gradient(900px 520px at 80% 0%, rgba(138,83,220,.22), transparent 55%),
@@ -575,12 +582,12 @@ html[data-theme="light"] .footer-new-socials .soc{
   .wwd-item{
     width: 100%;
     justify-items: center;
-    gap: 8px;
+    gap: 6px;
   }
 
   .ico-img{
-    width: 56px;
-    height: 56px;
+    width: 50px;
+    height: 50px;
   }
 
   .wwd-label{
@@ -887,6 +894,10 @@ html[data-theme="light"] .showcase-blank{
   .hero-orb {
     width: 240px;
   }
+  .pill-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 /* =========================
    WHAT WE DO (DARK BAND)
@@ -987,8 +998,8 @@ html[data-theme="light"] .wwd-label {
 ========================= */
 .contact-slab{
   background: #fff;
-  color: #151422;
-  padding: 56px 0 70px;
+  color: #151422;padding: 48px 0;  /* instead of 60–70px */
+
 }
 
 .contact-slab-inner{
@@ -1041,10 +1052,17 @@ html[data-theme="light"] .wwd-label {
   background: rgba(21,20,34,.04);
   color: #151422;
   outline: none;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .contact-form textarea{ resize: none; }
+.iti {
+  width: 100%;
+}
+
+.iti input {
+  padding-left: 58px !important;
+}
 
 .row2{
   display: grid;
@@ -1063,6 +1081,10 @@ html[data-theme="light"] .wwd-label {
   cursor: pointer;
   background: #1E1E2F;
   color: #fff;
+}
+.btn-send:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
 }
 
 /* right side */
