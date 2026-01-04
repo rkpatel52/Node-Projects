@@ -13,9 +13,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// static files
-app.use(express.static(path.join(__dirname, "public")));
-
 // pages
 app.get("/", (req, res) => res.render("pages/home", { title: "O5Dezigns" }));
 app.get("/about", (req, res) => res.render("pages/about", { title: "About - O5Dezigns" }));
@@ -63,3 +60,21 @@ app.post("/api/contact", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Running: http://localhost:${PORT}`));
+
+require("dotenv").config();
+
+const http = require("http");
+const { neon } = require("@neondatabase/serverless");
+
+const sql = neon(process.env.DATABASE_URL);
+
+const requestHandler = async (req, res) => {
+  const result = await sql`SELECT version()`;
+  const { version } = result[0];
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(version);
+};
+
+http.createServer(requestHandler).listen(3000, () => {
+  console.log("Server running at http://localhost:3000");
+});
