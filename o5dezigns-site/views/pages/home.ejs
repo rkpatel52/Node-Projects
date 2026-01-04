@@ -180,40 +180,37 @@
       <div class="contact-form-card">
         <h3>Leave your message</h3>
 
-        <form class="contact-form">
-          <div class="row2">
-            <label>
-              Name
-              <input type="text" placeholder="Your Name" />
-            </label>
+        <form class="contact-form" action="/api/contact" method="POST" id="contactForm">
+  <div class="row2">
+    <label>
+      Name
+      <input type="text" name="name" placeholder="Your Name" />
+    </label>
 
-            <label>
-              Email
-              <input type="email" placeholder="Your Email" />
-            </label>
-          </div>
-          
-          <label>
-  Phone Number
-  <input
-    id="phone"
-    type="tel"
-    placeholder="Phone number"
-  />
-          </label>
+    <label>
+      Email
+      <input type="email" name="email" placeholder="Your Email" />
+    </label>
+  </div>
 
-          <label>
-            Subject
-            <input type="text" placeholder="Subject" />
-          </label>
+  <label>
+    Phone Number
+    <input id="phone" type="tel" name="phone" placeholder="Phone number" />
+  </label>
 
-          <label>
-            Message
-            <textarea rows="5" placeholder="Message"></textarea>
-          </label>
+  <label>
+    Subject
+    <input type="text" name="subject" placeholder="Subject" />
+  </label>
 
-          <button class="btn-send" type="submit">Send Message</button>
-        </form>
+  <label>
+    Message
+    <textarea rows="5" name="message" placeholder="Message"></textarea>
+  </label>
+
+  <button class="btn-send" type="submit">Send Message</button>
+</form>
+
       </div>
     </div>
 

@@ -187,8 +187,62 @@
     return ok;
   }
 
-  form.addEventListener("submit", (e) => {
-    const ok = validateAllOnSubmit();
-    if (!ok) e.preventDefault();
-  });
+  form.addEventListener("submit", async (e) => {
+  const ok = validateAllOnSubmit();
+  if (!ok) {
+    e.preventDefault();
+    return;
+  }
+
+  // ✅ prevent normal page reload
+  e.preventDefault();
+
+  const btn = form.querySelector('button[type="submit"]');
+  const oldText = btn ? btn.textContent : "";
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+  }
+
+  try {
+    const formData = new FormData(form);
+
+    // If intl-tel-input exists, store full international number
+    const phoneInput = document.getElementById("phone");
+    const iti = phoneInput && phoneInput._intlTelInput ? phoneInput._intlTelInput : null;
+    if (iti && typeof iti.getNumber === "function") {
+      formData.set("phone", iti.getNumber()); // e.g. +16478828193
+    }
+
+    const payload = Object.fromEntries(formData.entries());
+
+    const res = await fetch(form.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      // server-side validation errors
+      const msg = data?.error || "Something went wrong. Please try again.";
+      alert(msg);
+      return;
+    }
+
+    alert("✅ Message sent successfully!");
+    form.reset();
+
+  } catch (err) {
+    console.error(err);
+    alert("Server error. Please try again.");
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = oldText;
+    }
+  }
+});
+
 })();
