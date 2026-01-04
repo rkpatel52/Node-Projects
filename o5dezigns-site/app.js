@@ -1,3 +1,4 @@
+// app.js
 require("dotenv").config();
 
 const express = require("express");
@@ -6,10 +7,14 @@ const pool = require("./db");
 
 const app = express();
 
+// body parsers
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// static
 app.use(express.static(path.join(__dirname, "public")));
 
+// ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -33,15 +38,13 @@ app.post("/api/contact", async (req, res) => {
       return res.status(400).json({ ok: false, error: "Invalid email." });
     }
 
-    const phoneSafe = phone ? String(phone).trim() : null;
-
     await pool.query(
       `INSERT INTO contact_messages (name, email, phone, subject, message, ip, user_agent)
        VALUES ($1,$2,$3,$4,$5,$6,$7)`,
       [
         name.trim(),
         email.trim().toLowerCase(),
-        phoneSafe,
+        phone ? String(phone).trim() : null,
         subject.trim(),
         message.trim(),
         req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.socket.remoteAddress || null,
@@ -49,11 +52,21 @@ app.post("/api/contact", async (req, res) => {
       ]
     );
 
-    return res.json({ ok: true });
+    return res.json({ ok: true, message: "Saved successfully" });
   } catch (err) {
     console.error("CONTACT_API_ERROR:", err);
-    return res.status(500).json({ ok: false, error: "Server error" });
+    return res.status(500).json({ ok: false, error: "Server error. Try again." });
   }
 });
 
+/**
+ * ✅ Local only
+ * On Vercel, DO NOT listen.
+ */
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Running: http://localhost:${PORT}`));
+}
+
+// ✅ Export for Vercel
 module.exports = app;
