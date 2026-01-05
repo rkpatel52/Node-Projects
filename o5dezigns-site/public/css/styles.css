@@ -1304,3 +1304,23 @@ html[data-theme="dark"] .iti__search-input{
   color: #000000 !important;
   font-size: 16px;
 }
+
+/* ✅ Force identical typing font for ALL contact fields */
+.contact-form input,
+.contact-form textarea,
+.contact-form select,
+.contact-form .iti input {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-size: 16px;          /* keeps iOS from zooming */
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* ✅ Make placeholders match too */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder,
+.contact-form .iti input::placeholder {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
