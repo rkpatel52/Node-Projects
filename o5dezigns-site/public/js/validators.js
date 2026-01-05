@@ -218,14 +218,27 @@
     try {
       const formData = new FormData(form);
 
-      // ✅ Build phone as "+<countrycode> <10digits>"
-      if (iti) {
-        const dialCode = iti.getSelectedCountryData().dialCode; // e.g. "1"
-        const digits = phoneInput.value.replace(/\D/g, "");
-        formData.set("phone", `+${dialCode} ${digits}`);
+// ✅ Always build phone as "+<countrycode> <10digits>" (robust)
+      const phoneEl = document.getElementById("phone");
+      const digits = String(phoneEl.value || "").replace(/\D/g, "");
+
+      // try from intl-tel-input, else fallback from DOM
+      let dialCode = null;
+
+      if (window.iti && typeof window.iti.getSelectedCountryData === "function") {
+        dialCode = window.iti.getSelectedCountryData().dialCode; // "1"
+      } else {
+        const dialEl = document.querySelector(".iti__selected-dial-code");
+        if (dialEl) dialCode = dialEl.textContent.replace("+", "").trim(); // "1"
       }
 
+      if (dialCode && digits.length === 10) {
+        formData.set("phone", `+${dialCode} ${digits}`); // ✅ "+1 6478828193"
+      }
+
+
       const payload = Object.fromEntries(formData.entries());
+      console.log("SENDING PHONE:", payload.phone);
 
       const res = await fetch(form.action, {
         method: "POST",
