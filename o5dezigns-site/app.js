@@ -59,10 +59,7 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-/**
- * ✅ Local only
- * On Vercel, DO NOT listen.
- */
+
 if (!process.env.VERCEL) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Running: http://localhost:${PORT}`));
