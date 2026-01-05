@@ -141,19 +141,17 @@
     // Phone
     if (phoneInput) {
       const v = phoneInput.value;
+      const digits = String(v || "").replace(/\D/g, ""); // only digits user typed
+
       if (isEmpty(v)) {
         setFieldError(phoneInput, "Phone number is required.");
         ok = false;
-      } else if (iti && typeof iti.isValidNumber === "function") {
-        if (!iti.isValidNumber()) {
-          setFieldError(phoneInput, "Enter a valid phone number for the selected country.");
-          ok = false;
-        }
-      } else if (!isValidPhoneFallback(v)) {
-        setFieldError(phoneInput, "Enter a valid phone number.");
+      } else if (digits.length !== 10) {
+        setFieldError(phoneInput, "Phone number must be exactly 10 digits.");
         ok = false;
       }
     }
+
 
     // Subject
     if (subjectInput) {
@@ -211,7 +209,15 @@
     const phoneInput = document.getElementById("phone");
     const iti = phoneInput && phoneInput._intlTelInput ? phoneInput._intlTelInput : null;
     if (iti && typeof iti.getNumber === "function") {
-      formData.set("phone", iti.getNumber()); // e.g. +16478828193
+      // ✅ Store phone as "+<countrycode> <10digits>"
+      const phoneEl = document.getElementById("phone");
+      const iti = phoneEl && phoneEl._intlTelInput ? phoneEl._intlTelInput : null;
+
+      if (iti) {
+        const dialCode = iti.getSelectedCountryData().dialCode; // "1", "91"
+        const digits = String(phoneEl.value || "").replace(/\D/g, ""); // 10 digits
+        formData.set("phone", `+${dialCode} ${digits}`); // ✅ +1 6478828193
+      }       
     }
 
     const payload = Object.fromEntries(formData.entries());

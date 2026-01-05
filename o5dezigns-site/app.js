@@ -38,6 +38,15 @@ app.post("/api/contact", async (req, res) => {
       return res.status(400).json({ ok: false, error: "Invalid email." });
     }
 
+    // ✅ Phone must be: +<countrycode> <10digits>
+    if (!phone || !/^\+\d{1,3} \d{10}$/.test(String(phone).trim())) {
+      return res.status(400).json({
+        ok: false,
+        error: "Phone must be in format +<countrycode> <10 digits> (example: +1 6478828193).",
+      });
+    }
+
+
     await pool.query(
       `INSERT INTO contact_messages (name, email, phone, subject, message, ip, user_agent)
        VALUES ($1,$2,$3,$4,$5,$6,$7)`,
