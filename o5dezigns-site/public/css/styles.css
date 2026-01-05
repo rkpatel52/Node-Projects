@@ -1188,3 +1188,76 @@ html[data-theme="light"] .wwd-label {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   BIG SCREEN ONLY (monitors)
+   Keeps laptop the same, increases size on large displays
+========================================================= */
+
+/* 1600px+ (most large monitors) */
+@media (min-width: 1600px){
+  :root{ --container: 1400px; }
+
+  /* slightly bigger base text */
+  body{ font-size: 18px; }
+
+  /* header */
+  .brand-logo{ height: 44px; }
+  .nav a{ font-size: 18px; }
+  .btn{ padding: 12px 20px; font-size: 16px; }
+  .icon-btn{ padding: 10px 12px; font-size: 16px; }
+
+  /* hero */
+  .hero-full h2{ font-size: clamp(52px, 3.2vw, 78px); }
+  .muted1{ font-size: 20px; line-height: 1.7; margin-right: 0; max-width: 680px; }
+  .hero-orb{ width: min(560px, 95%); }
+
+  /* pill button */
+  .pill-btn{ min-width: 300px; font-size: 19px; padding: 6px 6px 6px 22px; }
+  .pill-icon{ width: 46px; height: 46px; }
+
+  /* section spacing */
+  .who{ padding: 96px 0; }
+  .stats{ padding: 96px 0; }
+  .wwd{ padding: 92px 0 115px; }
+  .contact-slab{ padding: 84px 0; }
+
+  /* who text */
+  .who-text{ max-width: 1100px; font-size: clamp(18px, 1.05vw, 24px); line-height: 1.75; }
+
+  /* stats */
+  .stats-right h2{ font-size: clamp(46px, 2.7vw, 78px); }
+  .stats-right .muted{ font-size: 20px; max-width: 780px; }
+  .stats-card{ padding: 36px; }
+  .stats-card h3{ font-size: 22px; }
+  .stats-card p{ font-size: 16px; line-height: 1.7; }
+
+  /* wwd icons */
+  .wwd .muted{ font-size: 18px; line-height: 1.8; max-width: 900px; margin: 0 auto; }
+  .ico-img{ width: 66px; height: 66px; }
+  .wwd-label{ font-size: 16px; }
+
+  /* contact */
+  .contact-form-card{ width: min(520px, 100%); padding: 36px; }
+  .contact-form-card h3{ font-size: 22px; }
+  .contact-form input, .contact-form textarea{ font-size: 15px; padding: 12px 14px; }
+  .btn-send{ padding: 14px 16px; font-size: 15px; }
+
+  .contact-info h2{ font-size: clamp(48px, 2.4vw, 70px); }
+  .contact-info-sub{ font-size: 18px; max-width: 740px; }
+  .info-title{ font-size: 15px; }
+  .info-text{ font-size: 14px; }
+
+  /* footer */
+  .footer-cta{ padding: 92px 0 60px; }
+  .footer-new-logo{ font-size: 34px; }
+  .footer-new-desc{ font-size: 14px; max-width: 340px; }
+  .footer-new-col h4{ font-size: 16px; }
+  .footer-new-col a, .footer-new-meta{ font-size: 15px; }
+}
+
+/* 2000px+ ultra-wide (optional extra boost) */
+@media (min-width: 2000px){
+  :root{ --container: 1600px; }
+  .hero-orb{ width: min(640px, 95%); }
+}
