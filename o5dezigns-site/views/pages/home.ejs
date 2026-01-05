@@ -275,23 +275,28 @@
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"></script>
 
 <script>
-  const phoneInput = document.querySelector("#phone");
+  const phoneEl = document.getElementById("phone");
 
-  // ✅ STORE INSTANCE GLOBALLY
-  window.iti = window.intlTelInput(phoneInput, {
-    initialCountry: "auto",
-    separateDialCode: true,
-    preferredCountries: ["ca", "us", "in"],
-    utilsScript:
-      "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js",
-    geoIpLookup: function (callback) {
-      fetch("https://ipapi.co/json/")
-        .then(res => res.json())
-        .then(data => callback(data.country_code))
-        .catch(() => callback("ca"));
+  phoneEl.addEventListener("input", () => {
+    // Remove all non-digits
+    let digits = phoneEl.value.replace(/\D/g, "");
+
+    // Limit to 10 digits
+    if (digits.length > 10) {
+      digits = digits.slice(0, 10);
+    }
+
+    phoneEl.value = digits;
+  });
+
+  // Optional: block non-numeric keys
+  phoneEl.addEventListener("keypress", (e) => {
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault();
     }
   });
 </script>
+
 
 <script src="/js/validators.js"></script>
 
