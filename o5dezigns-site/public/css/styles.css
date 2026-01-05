@@ -1047,6 +1047,20 @@ html[data-theme="light"] .wwd-label {
   outline: none;
   font-size: 13px;
 }
+/* ✅ iOS Safari: stop zoom when focusing inputs */
+@supports (-webkit-touch-callout: none) {
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select,
+  .iti input {
+    font-size: 16px !important;
+  }
+}
+@supports (-webkit-touch-callout: none) {
+  input, textarea, select { font-size: 16px !important; }
+}
+
+
 
 .contact-form textarea{ resize: none; }
 .iti {
@@ -1260,4 +1274,33 @@ html[data-theme="light"] .wwd-label {
 @media (min-width: 2000px){
   :root{ --container: 1600px; }
   .hero-orb{ width: min(640px, 95%); }
+}
+
+
+/* ✅ Intl-tel-input dropdown readability (dark mode) */
+html[data-theme="dark"] .iti__country-list{
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+html[data-theme="dark"] .iti__country{
+  color: #000000 !important;
+}
+
+html[data-theme="dark"] .iti__country-name,
+html[data-theme="dark"] .iti__dial-code{
+  color: #000000 !important;
+}
+
+/* hover */
+html[data-theme="dark"] .iti__country:hover,
+html[data-theme="dark"] .iti__active{
+  background: #f2f2f2 !important;
+}
+
+/* search input inside dropdown (if enabled) */
+html[data-theme="dark"] .iti__search-input{
+  background: #ffffff !important;
+  color: #000000 !important;
+  font-size: 16px;
 }
