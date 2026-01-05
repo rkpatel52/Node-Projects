@@ -291,38 +291,7 @@
         .catch(() => callback("ca"));
     }
   });
-
-  // ✅ NEW: Allow EXACTLY max 10 digits in the input (after country code)
-  let isUpdating = false;
-
-  phoneInput.addEventListener("input", () => {
-    if (isUpdating) return;
-
-    // digits user typed (ignore spaces, brackets, hyphens)
-    let digits = phoneInput.value.replace(/\D/g, "");
-
-    // limit to 10 digits
-    if (digits.length > 10) digits = digits.slice(0, 10);
-
-    // re-apply using intl-tel-input so formatting stays correct
-    const dialCode = window.iti.getSelectedCountryData().dialCode; // e.g. "1"
-    isUpdating = true;
-    window.iti.setNumber(`+${dialCode}${digits}`); // formats like (647) 882-8193
-    isUpdating = false;
-  });
-
-  // Optional: when country changes, keep only 10 digits
-  phoneInput.addEventListener("countrychange", () => {
-    let digits = phoneInput.value.replace(/\D/g, "");
-    if (digits.length > 10) digits = digits.slice(0, 10);
-
-    const dialCode = window.iti.getSelectedCountryData().dialCode;
-    isUpdating = true;
-    window.iti.setNumber(`+${dialCode}${digits}`);
-    isUpdating = false;
-  });
 </script>
-
 
 <script src="/js/validators.js"></script>
 
