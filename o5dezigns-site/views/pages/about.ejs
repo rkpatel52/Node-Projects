@@ -1,0 +1,372 @@
+<%- include("../layouts/main", {
+  title: "About - O5Dezigns",
+  body: `
+<!-- ABOUT HERO (TOP DARK AREA) -->
+<section class="about-hero">
+  <div class="container about-hero-inner">
+    <h1>Who We Are</h1>
+    <p class="about-hero-sub">
+      We craft elite identities, high-performance websites, and captivating content<br/>
+      for visionary brands. Every pixel is intentional every detail refined.
+    </p>
+
+    <div class="about-hero-actions">
+      <a class="about-btn about-btn-primary" href="/contact">START A LUXURY PROJECT</a>
+      <a class="about-btn about-btn-outline" href="/services">EXPLORE SERVICES</a>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY (WHITE AREA) -->
+<section class="about-story">
+  <div class="container about-story-inner">
+    <h2>Our Story</h2>
+
+    <div class="about-story-text">
+      <p>
+        O5 Dezigns began with a bold vision to bring world-class branding and digital innovation
+        to businesses that demand more. What started as a passion for creative excellence evolved
+        into a studio where strategy, artistry, and technology meet to create iconic brand moments.
+      </p>
+
+      <p>
+        We partner with leaders who value quality and long-term impact. Your brand isn’t just a project,
+        it’s a legacy in the making.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO (DARK AREA) -->
+<section class="wwd">
+  <div class="container wwd-inner">
+    <h2>What We Do</h2>
+    <p class="muted">
+      We design and develop high-quality digital products to help
+      small and medium-sized businesses grow and succeed.
+    </p>
+<div class="wwd-icons">
+
+  <div class="wwd-item">
+    <img
+      src="/images/2.1.png"
+      data-dark="/images/2.1.png"
+      data-light="/images/1.1.png"
+      alt=""
+      class="ico-img i1"
+    />
+    <div class="wwd-label">WEB DESIGN</div>
+  </div>
+
+  <div class="wwd-item">
+    <img
+      src="/images/2.2.png"
+      data-dark="/images/2.2.png"
+      data-light="/images/1.2.png"
+      alt=""
+      class="ico-img i2"
+    />
+    <div class="wwd-label">GRAPHIC DESIGN</div>
+  </div>
+
+  <div class="wwd-item">
+    <img
+      src="/images/2.3.png"
+      data-dark="/images/2.3.png"
+      data-light="/images/1.3.png"
+      alt=""
+      class="ico-img i3"
+    />
+    <div class="wwd-label">SOCIAL MEDIA MARKETING</div>
+  </div>
+
+  <div class="wwd-item">
+    <img
+      src="/images/2.4.png"
+      data-dark="/images/2.4.png"
+      data-light="/images/1.4.png"
+      alt=""
+      class="ico-img i4"
+    />
+    <div class="wwd-label">SCO &amp; SSM</div>
+  </div>
+
+</div>
+
+    
+
+    </div>  
+  </div>    
+</section>
+
+
+<!-- MEET THE TEAM (WHITE AREA) -->
+<section class="about-team">
+  <div class="container about-team-inner">
+    <h2>Meet The Team</h2>
+
+    <div class="about-team-grid">
+      <!-- Card 1 -->
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <div class="team-bar">
+          <div class="team-name">Rahul Patel</div>
+          <div class="team-role">Founder, O5Dezigns</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <div class="team-bar">
+          <div class="team-name">Jenil Gelani</div>
+          <div class="team-role">Founder, O5Dezigns</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <div class="team-bar team-bar-light">
+          <div class="team-name">Faizan Vohra</div>
+          <div class="team-role">Co-Founder, O5Dezigns</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+    /* =========================================================
+   ABOUT PAGE (LIKE SCREENSHOT)
+========================================================= */
+
+/* HERO */
+.about-hero{
+  background:
+    radial-gradient(1200px 800px at 30% 10%, rgba(118,80,219,.35), transparent 55%),
+    radial-gradient(900px 600px at 80% 0%, rgba(138,83,220,.25), transparent 55%),
+    var(--bg2);
+  color: var(--text);
+  padding: 90px 0 80px;
+  border-bottom: 1px solid var(--cardBorder);
+}
+
+.about-hero-inner{
+  text-align: center;
+  max-width: 980px;
+}
+
+.about-hero h1{
+  margin: 0 0 10px;
+  font-size: clamp(44px, 4vw, 72px);
+  line-height: 1.05;
+}
+
+.about-hero-sub{
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.about-hero-actions{
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.about-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 800;
+  letter-spacing: .4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.about-btn-primary{
+  background: rgba(255,255,255,.95);
+  color: #151422;
+}
+
+.about-btn-outline{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.22);
+  color: #fff;
+}
+
+/* Our Story (White) */
+.about-story{
+  background: #fff;
+  color: #151422;
+  padding: 60px 0;
+}
+
+.about-story-inner{
+  text-align: center;
+  max-width: 980px;
+}
+
+.about-story h2{
+  margin: 0 0 18px;
+  font-size: clamp(28px, 2.4vw, 44px);
+}
+
+.about-story-text{
+  text-align: left;
+  max-width: 860px;
+  margin: 0 auto;
+  color: rgba(21,20,34,.72);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* What We Do (Dark) */
+.about-what{
+  background:
+    radial-gradient(1200px 800px at 30% 10%, rgba(118,80,219,.22), transparent 55%),
+    radial-gradient(900px 600px at 80% 0%, rgba(138,83,220,.18), transparent 55%),
+    var(--bg2);
+  color: var(--text);
+  padding: 70px 0;
+}
+
+.about-what-inner{
+  text-align: center;
+}
+
+.about-what h2{
+  margin: 0 0 10px;
+  font-size: clamp(34px, 3vw, 60px);
+  line-height: 1.1;
+}
+
+.about-what-sub{
+  margin: 0;
+  line-height: 1.7;
+}
+
+.about-what-icons{
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(18px, 6vw, 120px);
+  align-items: start;
+  justify-items: center;
+  position: relative;
+}
+
+.about-what-icons::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 22px;
+  height: 1px;
+  opacity: .35;
+  background-image: radial-gradient(rgba(255,255,255,.45) 1px, transparent 1px);
+  background-size: 10px 1px;
+}
+
+.about-what-item{
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.about-what-ic{
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  padding: 10px;
+}
+
+.about-what-label{
+  font-size: 11px;
+  letter-spacing: .8px;
+  opacity: .85;
+}
+
+/* Meet The Team (White) */
+.about-team{
+  background: #fff;
+  color: #151422;
+  padding: 70px 0 80px;
+}
+
+.about-team-inner{
+  text-align: center;
+}
+
+.about-team h2{
+  margin: 0 0 26px;
+  font-size: clamp(30px, 2.8vw, 54px);
+}
+
+.about-team-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px;
+  align-items: start;
+  justify-items: center;
+}
+
+.team-card{
+  width: min(260px, 100%);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,.10);
+  background: #fff;
+}
+
+.team-photo{
+  height: 260px;
+  background: linear-gradient(135deg, rgba(21,20,34,.15), rgba(118,80,219,.20));
+}
+
+.team-bar{
+  padding: 14px 16px;
+  background: #7650DB;
+  color: #fff;
+  text-align: left;
+}
+
+.team-bar-light{
+  background: rgba(213,188,253,1);
+  color: #fff;
+  opacity: .85;
+}
+
+.team-name{
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.team-role{
+  margin-top: 3px;
+  font-size: 11px;
+  opacity: .9;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .about-story-text{ text-align: center; }
+  .about-what-icons{ grid-template-columns: 1fr 1fr; gap: 18px; }
+  .about-team-grid{ grid-template-columns: 1fr; gap: 24px; }
+  .about-what-icons::before{ display:none; }
+}
+
+</style>
+`
+}) %>
